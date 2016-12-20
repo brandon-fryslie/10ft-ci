@@ -1,0 +1,21 @@
+primary:
+  image: docker.f4tech.com/jenkins/base-debian-jenkins:test
+  ports:
+    - '8080:8080'
+    - '50086:50086'
+  environment:
+    SEED_JOBS_REPO: 'git@github.com:RallySoftware/10ft-ci.git'
+    JENKINS_SLAVE_PORT: 50086
+    JENKINS_TYPE: primary
+    JENKINS_FQDN: bfryslie-mbr.local
+    GITHUB_CLIENT_ID: c290b5641d6b1e6e57f1
+    GITHUB_CLIENT_SECRET: 86429363a18e0f9a4cd59acca0f02e59c58e33d2
+    JAVA_OPTS: -Xmx4G
+  volumes_from:
+    - data
+
+data:
+  image: docker.f4tech.com/jenkins/jenkins-data
+  environment:
+    S3_BUCKET_FOLDER: analytics-ci
+    BACKUP_FREQUENCY: 3h
