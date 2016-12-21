@@ -9,6 +9,8 @@ services:
     environment:
       SEED_JOBS_REPO: 'git@github.com:brandon-fryslie/10ft-ci.git'
       SEED_JOBS_BRANCH: 'bfryslie_wip'
+      SEED_JOBS_DIR: ci/jobs/dsl
+      SEED_JOB_ADDITIONAL_CLASSPATH: ci/jobs
       JENKINS_SLAVE_PORT: '50095'
       JENKINS_TYPE: primary
       JENKINS_FQDN: cici.ci.f4tech.com
